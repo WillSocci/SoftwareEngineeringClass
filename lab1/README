@@ -1,0 +1,14 @@
+These are the commands needed to compile and run my tests and CarRunner file:
+
+UNIT TESTS:
+
+cd lab1
+javac c/*.java
+javac -cp ".:../junit-4.13.2.jar:../hamcrest-core-1.3.jar" u/HybridTest.java
+java -cp ".:../junit-4.13.2.jar:../hamcrest-core-1.3.jar" org.junit.runner.JUnitCore u.HybridTest
+
+CarRunner FILE:
+
+cd lab1
+javac -d . c/*.java
+java c.CarRunner
