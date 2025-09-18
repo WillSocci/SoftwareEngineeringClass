@@ -1,0 +1,9 @@
+This is my lab3...
+The pom.xml is the maven code needed to run this lab!
+In order to compile and run the maven:
+
+cd lab3
+mvn clean compile
+mvn test
+
+That's all!
