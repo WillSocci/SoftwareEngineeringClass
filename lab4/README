@@ -1,0 +1,19 @@
+This is my lab4! To start off you will need to download python and flask.
+In order to run my tests you will need these commands and instructions:
+
+1.) first open up a terminal, and in the terminal run these:
+
+2.)
+  cd lab4
+  python3 c/app.py
+
+that opens up the port and allows connection to happen.
+
+3.) then open up a brand new terminal and enter these to compile and run the tests:
+
+4.)
+  cd lab4
+  javac -cp ".:../junit-4.13.2.jar:../hamcrest-core-1.3.jar" u/unitTests.java
+  java -cp ".:../junit-4.13.2.jar:../hamcrest-core-1.3.jar" org.junit.runner.JUnitCore u.unitTests
+
+****IN ORDER FOR THIS TO WORK THE app.py 5000 PORT MUST BE RUNNING**** (step2)
