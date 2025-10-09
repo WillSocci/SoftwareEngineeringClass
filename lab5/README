@@ -1,0 +1,14 @@
+This is my lab5! To start off you will need to download python and flask.
+In order to run my tests you will need these commands and instructions:
+
+In one terminal enter this to open the port:
+
+cd lab5
+python3 c/flaskServer.py
+
+
+In a brand new terminal enter this to run the unittests:
+
+cd lab5
+java -cp ".:../junit-4.13.2.jar:../hamcrest-core-1.3.jar" org.junit.runner.JUnitCore u.unittests
+javac -cp ".:../junit-4.13.2.jar:../hamcrest-core-1.3.jar" u/unittests.java
