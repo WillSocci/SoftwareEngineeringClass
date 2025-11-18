@@ -3,12 +3,72 @@
 <head> 
     <title>Getting Started: Handling Form Submission</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        .container {
+            background: rgb(138, 138, 138);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            max-width: 500px;
+            text-align: center;
+        }
+        h1 {
+            color: #ffffff;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #ffffff;
+            margin: 30px 0 20px 0;
+        }
+        p {
+            font-size: 20px;
+            margin: 15px 0;
+            color: #ffffff;
+        }
+        span {
+            font-weight: bold;
+            color: #ffffff;
+        }
+        button {
+            background-color: #667eea;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 200px;
+        }
+        button:hover {
+            background-color: #5568d3;
+        }
+        .button-container {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        form {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
 	<h1>Result</h1>
-    <p th:text="'count: ' + ${count.count}" />
+    <p th:text="'count: ' + ${total}" />
     <p th:text="'id: ' + ${greeting.id}" />
-    <p th:text="'content: ' + ${greeting.content}" />
+    <p th:text="${greeting.content}" />
 
     <h2>Your Score:</h2>
     <p>Correct Answers: <span th:text="${correct}">0</span></p>
@@ -16,8 +76,14 @@
     <p>Total Questions: <span th:text="${total}">0</span></p>
     <p>Percentage: <span th:text="${#numbers.formatDecimal((correct * 100.0 / total), 1, 2)}">0</span>%</p>
 
-    <form action="/get-question" method="get">
+    <form action="/" method="get">
         <button type="submit">Retake Quiz</button>
+    </form>
+    <form action="/finish" method="post" style="display: inline;">
+        <input type="hidden" name="correct" th:value="${correct}">
+        <input type="hidden" name="incorrect" th:value="${incorrect}">
+        <input type="hidden" name="total" th:value="${total}">
+        <button type="submit">Finish</button>
     </form>
     <a href="/get_question">Submit another message</a>
 </body>

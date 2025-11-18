@@ -22,6 +22,10 @@ public class HomeController {
 
     @GetMapping("/") 
     public String home() { 
+		// Count count = new Count();
+        // count.count = count.count + 1;
+        // model.addAttribute("count", new Count());
+
         return "home";
     } 
 
@@ -43,9 +47,9 @@ public class HomeController {
     }
 
 	@GetMapping("/retake")
-	public String retakeQuiz(org.springframework.web.bind.support.SessionStatus status) {
-   	 	status.setComplete();
-   	 	return "redirect:/get-question";
+	public String retakeQuiz(Model model, org.springframework.web.bind.support.SessionStatus status) {
+		status.setComplete();
+		return "redirect:/";
 	}
 
 	@GetMapping({"/get_question", "/get-question"})
@@ -57,7 +61,8 @@ public class HomeController {
 			count.count = 1;
 		} else {
 			count = (Count) model.getAttribute("count");
-			if (count.count == 0) {
+			if (count.count > TOTAL_QUESTIONS) {
+				count = new Count();
 				count.count = 1;
 			}
 		}
@@ -116,6 +121,20 @@ public class HomeController {
 		model.addAttribute("myString", myStringObject);
 
 		return "question";
+	}
+	
+	@PostMapping("/finish")
+	public String finishQuiz(
+			@RequestParam("correct") int correct,
+			@RequestParam("incorrect") int incorrect,
+			@RequestParam("total") int total,
+			Model model) {
+		
+		model.addAttribute("correct", correct);
+		model.addAttribute("incorrect", incorrect);
+		model.addAttribute("total", total);
+		
+		return "congrats";
 	}
 
 }
