@@ -1,0 +1,21 @@
+This is my lab10! To start off you will need to download python and flask.
+In order to run my tests you will need these commands and instructions:
+
+In one terminal enter this to open the port:
+
+cd lab10
+python3 my-server.py
+
+
+In a brand new terminal enter this to run the unittests:
+
+
+cd lab10
+python test/test.py
+
+
+to run the my-calls.py:
+
+python my-calls.py
+
+
