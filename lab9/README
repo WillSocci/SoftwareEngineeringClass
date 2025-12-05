@@ -1,0 +1,17 @@
+This is my lab9! To start off you will need to download python and flask.
+In order to run my tests you will need these commands and instructions:
+
+In one terminal enter this to open the port:
+
+cd lab9
+python3 my_server.py
+
+In a brand new terminal enter this to run the unittests:
+
+cd lab9
+python test.py
+
+
+to run the my-calls.py:
+
+python my-calls.py
